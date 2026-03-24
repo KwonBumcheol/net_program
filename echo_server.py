@@ -12,6 +12,8 @@ print('connected by', remotehost, remoteport)
 
 while True:
     data = conn.recv(BUFSIZE)
+    if not data:    # data 빈 bytes 객체일 경우 -> 무한루프 탈출
+        break
     print("Received message: ", data.decode())
     
     conn.send(data)
