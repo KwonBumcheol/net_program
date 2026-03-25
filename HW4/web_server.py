@@ -7,7 +7,7 @@ s.listen(10)
 while True:
     c, addr = s.accept()
     
-    data = c.recv(1024)  # 수신
+    data = c.recv(1024)  # 수신 HTTP Request
     
     if not data:
         break
@@ -17,7 +17,7 @@ while True:
     
     request_line = req[0]   # HTTP Request 첫줄만 - GET /index.html HTTP/1.1'
     method, path, version = request_line.split()
-    filename = path[1:]
+    filename = path[1:] # / 뒤부터 -> index.html
 
     # 웹 서버 코드 작성
     # 각 객체(파일 또는 문자열) 전송 후, 소켓 닫기
