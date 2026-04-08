@@ -1,0 +1,5 @@
+Wed Apr  8 01:16:54 2026: Device1: Temp=28, Humid=35, Ilum=97
+Wed Apr  8 01:16:55 2026: Device1: Temp=20, Humid=41, Ilum=87
+Wed Apr  8 01:16:55 2026: Device1: Temp=11, Humid=92, Ilum=127
+Wed Apr  8 01:16:56 2026: Device2: Heartbeat=72, Steps=9, Calories=66
+Wed Apr  8 01:16:56 2026: Device2: Heartbeat=72, Steps=13, Calories=215
