@@ -1,7 +1,7 @@
 from socket import *
 
 s = socket(AF_INET, SOCK_STREAM)
-s.bind(('localhost', 8080))
+s.bind(('', 80))
 s.listen(10)
 
 while True:
