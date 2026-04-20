@@ -10,6 +10,10 @@ c, addr = s.accept()
 
 while True:
     data = c.recv(1024)
+    
+    if not data:
+        break
+    
     msg = data.decode()
 
     if msg == 'ping':
