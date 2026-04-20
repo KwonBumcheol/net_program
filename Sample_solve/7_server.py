@@ -43,3 +43,25 @@ while True:
 
 #     c.send(msg.encode())            # 수신한 메시지 그대로 응답
 #     c.close()
+
+## 손실이 서버 -> 클라이언트 보내는 경우 (기출과 반대 상황)
+# from socket import *
+# import random
+
+# s = socket(AF_INET, SOCK_DGRAM)
+# s.bind(('', 9999))
+# print('서버 시작...')
+
+# while True:
+#     data, addr = s.recvfrom(1024)
+#     msg = data.decode()
+#     print(f'[수신] {addr} → "{msg}"')
+
+#     # 서버→클라이언트 손실 시뮬레이션 (25% 확률로 응답 드롭)
+#     if random.random() < 0.25:
+#         print('[손실] 응답 패킷 드롭 (25% 손실 시뮬레이션)')
+#         continue  # 응답 안 보내고 넘어감
+
+#     response = f'Echo: {msg}'
+#     s.sendto(response.encode(), addr)
+#     print(f'[전송] → {addr} : "{response}"')
