@@ -110,3 +110,31 @@ while True:
 #             continue                    # 재전송
 #     else:
 #         print('전송 실패 (3회 초과)')   # 3번 모두 실패 시
+
+## 손실복구 + 6byte 수신
+# from socket import *
+
+# s = socket(AF_INET, SOCK_DGRAM)
+# s.settimeout(1.0)          # 1초 안에 응답 없으면 timeout 발생
+# addr = ('localhost', 9999)
+# MAX_RETRY = 5              # 최대 재시도 횟수
+
+# while True:
+#     for req in ['1', '2', '3']:
+#         for attempt in range(MAX_RETRY):
+#             try:
+#                 s.sendto(req.encode(), addr)    # 요청 전송
+#                 data, _ = s.recvfrom(6)         # 딱 6바이트만 수신
+                
+#                 # 수신 성공 → 파싱 후 출력
+#                 temp  = int.from_bytes(data[0:2], 'big')
+#                 humid = int.from_bytes(data[2:4], 'big')
+#                 lumi  = int.from_bytes(data[4:6], 'big')
+#                 print(f'Temp={temp}, Humid={humid}, Lumi={lumi}')
+#                 break                           # 성공 시 재시도 루프 탈출
+                
+#             except timeout:
+#                 print(f'[재시도 {attempt+1}/{MAX_RETRY}] 응답 없음')
+#         else:
+#             # MAX_RETRY 번 모두 실패 시
+#             print(f'[오류] {req} 요청 실패 - 서버 응답 없음')

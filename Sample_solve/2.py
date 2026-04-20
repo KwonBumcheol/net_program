@@ -11,3 +11,10 @@ for key in days:
     if key.startswith(input()):
         print(days[key])
         break
+ 
+# prefix = input()
+
+# for key in days:
+#     if key[:len(prefix)] == prefix:
+#         print(days[key])
+#         break
